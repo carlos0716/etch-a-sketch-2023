@@ -1,9 +1,15 @@
 const gridContainer = document.getElementById('grid-container');
+const btn = document.getElementById('btn');
 
+btn.addEventListener('click', (e)=>{
+    gridContainer.innerHTML = '';
+    let n = prompt('Enter a number between 2 and 100');
+    createGrid(n);
+})
 
 
 function createGrid(n) {
-    
+   
     for (let i = 0; i < n; i++) {
         if (n > 100) return;
         
@@ -15,16 +21,10 @@ function createGrid(n) {
             gridContainer.appendChild(div);  
             div.style.width = `calc(100%/${n})`;
             div.style.height = `calc(100%/${n})`;
-            div.addEventListener('mouseenter', (e) => {
+            div.addEventListener('mouseover', (e) => {
                 div.style.backgroundColor = 'black';
             });
         }
     } 
-
-    
 }
 
-let div = document.getElementById('test');
-div.addEventListener('mouseenter', (e) => {
-    div.style.backgroundColor = 'red';
-});
